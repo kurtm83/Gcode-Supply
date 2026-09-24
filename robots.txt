@@ -4,5 +4,6 @@ Disallow: /secretstorebackdoor.html
 Disallow: /test-youtube-api.html
 Disallow: /scripts/
 Disallow: /portfolio/
+Disallow: /project-review-gg2026-berry.html
 
 Sitemap: https://gcode.supply/sitemap.xml
