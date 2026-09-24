@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval Draft — GG2026 Berry Rouge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .review-wrap { max-width: 1180px; margin: 0 auto; padding: 32px 20px 72px; }
+        .review-badge { display: inline-block; padding: 7px 12px; border-radius: 999px; background: #f4c95d; color: #1d2b34; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: .75rem; }
+        .review-lede { max-width: 780px; margin-bottom: 32px; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        .review-card { background: #fff; border-radius: 10px; padding: 14px; box-shadow: 0 8px 24px rgba(25, 45, 55, .1); }
+        .review-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 7px; display: block; }
+        .review-card.wide img { height: auto; object-fit: contain; background: #f7f8f9; }
+        .review-card figcaption { margin-top: 10px; color: #53656f; font-size: .9rem; }
+        .review-section { margin-top: 42px; }
+        .review-section h2 { margin-bottom: 8px; }
+        .review-links { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+        .review-links a { display: inline-block; padding: 10px 14px; border-radius: 5px; background: #263b45; color: #fff; text-decoration: none; }
+        .review-note { padding: 16px 18px; border-left: 4px solid #f4c95d; background: #f5f7f8; }
+        @media (max-width: 640px) { .review-wrap { padding: 24px 14px 48px; } .review-card img { height: 210px; } }
+    </style>
+</head>
+<body>
+    <main class="review-wrap">
+        <span class="review-badge">Approval draft — not published</span>
+        <h1>GG2026 — Grey Goose Berry Rouge</h1>
+        <div class="review-lede">
+            <p>Proposed Recent Work entry for the Grey Goose Berry Rouge / SOBE Grand Tasting display project. This draft gathers the supplied berry photos, drawing crops, model context, Vimeo video, and Instagram image-only reference for review.</p>
+            <p class="review-note"><strong>Approval needed:</strong> confirm the project title, image order, copy, and whether the Instagram image should remain in the final entry.</p>
+        </div>
+
+        <section class="review-section">
+            <h2>Project photos</h2>
+            <div class="review-grid">
+                <figure class="review-card"><img src="images/approval-berry-project/berry-photo-01.jpeg" alt="Berry project photo 1"><figcaption>Supplied project photo 1</figcaption></figure>
+                <figure class="review-card"><img src="images/approval-berry-project/berry-photo-02.jpeg" alt="Berry project photo 2"><figcaption>Supplied project photo 2</figcaption></figure>
+                <figure class="review-card"><img src="images/approval-berry-project/berry-photo-03.jpeg" alt="Berry project photo 3"><figcaption>Supplied project photo 3</figcaption></figure>
+                <figure class="review-card"><img src="images/approval-berry-project/berry-photo-04.jpeg" alt="Berry project photo 4"><figcaption>Supplied project photo 4</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="review-section">
+            <h2>Technical drawing crops</h2>
+            <div class="review-grid">
+                <figure class="review-card wide"><img src="images/approval-berry-project/drawing-front-iso.png" alt="Front isometric technical drawing crop of the Grey Goose display"><figcaption>Front isometric view</figcaption></figure>
+                <figure class="review-card wide"><img src="images/approval-berry-project/drawing-front-left-iso.png" alt="Front left isometric technical drawing crop of the Grey Goose display"><figcaption>Front-left isometric view</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="review-section">
+            <h2>Model and source context</h2>
+            <p>The source model is retained in Nextcloud and was accessed through the Start9 host over SSH. The approval page uses drawing-derived views rather than exposing the raw 3DM file to visitors.</p>
+            <div class="review-links">
+                <a href="images/approval-berry-project/drawing-page-1.png">Open full drawing page 1</a>
+                <a href="https://vimeo.com/1167914548/4ba5befec7">Watch the supplied Vimeo video</a>
+            </div>
+            <div class="review-card wide">
+                <iframe src="https://player.vimeo.com/video/1167914548?h=4ba5befec7" title="GG2026 project video" style="width:100%; aspect-ratio:16/9; border:0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="review-section">
+            <h2>Instagram image-only reference</h2>
+            <figure class="review-card" style="max-width:520px;">
+                <img src="images/approval-berry-project/instagram-berry.jpg" alt="Image-only reference from the supplied Instagram post">
+                <figcaption>Image extracted from the supplied post; comments and Instagram interface are not included.</figcaption>
+            </figure>
+            <div class="review-links"><a href="https://www.instagram.com/p/DWB1Cv_ALMJ/">Open original Instagram post</a></div>
+        </section>
+
+        <section class="review-section">
+            <h2>Suggested final entry</h2>
+            <p><strong>Title:</strong> GG2026 — Grey Goose Berry Rouge</p>
+            <p><strong>Project:</strong> Custom 3D modeling, visualization, and fabrication support for a Grey Goose Berry Rouge display at the SOBE Grand Tasting.</p>
+            <p><strong>Review decision:</strong> Approve as shown, request changes, or provide final title/copy.</p>
+        </section>
+    </main>
+</body>
+</html>
