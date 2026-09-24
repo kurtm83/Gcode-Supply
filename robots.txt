@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /secretstorebackdoor.html
+Disallow: /test-youtube-api.html
+Disallow: /scripts/
+
+Sitemap: https://gcode.supply/sitemap.xml
