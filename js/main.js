@@ -1,4 +1,4 @@
-// 3DNC - Main JavaScript
+// GCode Supply - Main JavaScript
 
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {

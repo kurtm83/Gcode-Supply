@@ -174,7 +174,7 @@ class Store {
         }
         
         document.getElementById('productBreadcrumb').textContent = product.name;
-        document.title = `${product.name} - 3DNC Store`;
+        document.title = `${product.name} - GCode Supply Store`;
         
         // Build material options HTML
         let materialOptionsHTML = '';
