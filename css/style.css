@@ -202,8 +202,7 @@ p {
 
 /* Modal Light Backgrounds - For improved readability over gcode background */
 .modal-light {
-    background-color: rgba(78, 86, 91, 0.92);
-    backdrop-filter: blur(10px);
+    background-color: #4e565b;
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid rgba(79, 195, 247, 0.2);
@@ -211,16 +210,14 @@ p {
 }
 
 .modal-light-wrapper {
-    background-color: rgba(78, 86, 91, 0.92);
-    backdrop-filter: blur(10px);
+    background-color: #4e565b;
     padding: 3rem;
     border-radius: 8px;
     border: 1px solid rgba(79, 195, 247, 0.2);
 }
 
 .section-header-light {
-    background-color: rgba(78, 86, 91, 0.88);
-    backdrop-filter: blur(10px);
+    background-color: #4e565b;
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
     margin-bottom: 2rem;
@@ -234,8 +231,7 @@ p {
 }
 
 .section-header-light-blue {
-    background-color: rgba(102, 119, 129, 0.88);
-    backdrop-filter: blur(10px);
+    background-color: #667781;
     padding: 1.5rem 2rem;
     border-radius: 8px;
     margin: 0 auto 1rem;
@@ -256,8 +252,7 @@ p {
 }
 
 .section-header-full-width {
-    background-color: rgba(102, 119, 129, 0.88);
-    backdrop-filter: blur(10px);
+    background-color: #667781;
     padding: 2rem 0;
     margin-bottom: 3rem;
     border-top: 1px solid rgba(79, 195, 247, 0.2);
@@ -302,8 +297,7 @@ p {
 }
 
 .modal-light-wrapper-blue {
-    background-color: rgba(102, 119, 129, 0.92);
-    backdrop-filter: blur(10px);
+    background-color: #667781;
     padding: 3rem;
     border-radius: 8px;
     border: 1px solid rgba(79, 195, 247, 0.2);

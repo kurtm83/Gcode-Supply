@@ -16,3 +16,11 @@ Thumbs.db
 # Environment Files
 .env
 .env.local
+
+# Local media migration and verification tools/reports
+MEDIA_MIGRATION_REPORT.md
+audit_media.py
+download_missing_media.py
+scripts/check-video.js
+scripts/fetch-body.js
+scripts/head-check.js
