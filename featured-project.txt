@@ -1,5 +1,9 @@
 # Featured Project Configuration
 # Edit this file to update the "Recent Work" section on gallery.html
+# NOTE (Sep 2026): the gallery's latest entry (Big Berry Print Files) is
+# hand-maintained because it uses a Vimeo embed and a multi-image collage.
+# Running node scripts/update-gallery.js will OVERWRITE it with this file's
+# YouTube-based template. Do not run the script until it supports Vimeo.
 
 VIDEO_ID=tR23ThTc6WM
 TITLE=Custom Drawer Pull Reproduction

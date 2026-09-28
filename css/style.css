@@ -1736,3 +1736,42 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+/* Berry project collage (Recent Work entry with mixed image sets) */
+.berry-entry .berry-trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.berry-entry .berry-trio img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #111;
+    border-radius: 8px;
+}
+.berry-entry .berry-collage {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.berry-entry .berry-collage img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #111;
+    border-radius: 8px;
+}
+.berry-entry .berry-collage .span-3 { grid-column: span 3; }
+.berry-entry .berry-subhead {
+    margin: 1.25rem 0 0.75rem;
+    font-size: 1rem;
+}
+@media (max-width: 768px) {
+    .berry-entry .berry-trio { grid-template-columns: 1fr; }
+    .berry-entry .berry-trio img { height: auto; }
+    .berry-entry .berry-collage img { height: auto; }
+    .berry-entry .berry-collage .span-3 { grid-column: span 6; }
+}
