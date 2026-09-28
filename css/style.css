@@ -790,6 +790,16 @@ p {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Solid background for Recent Work descriptions - readability over gcode background */
+.gallery-item-description {
+    background-color: #4e565b;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(79, 195, 247, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    align-self: start;
+}
+
 .project-highlight {
     padding: 1rem;
     border-radius: 6px;
