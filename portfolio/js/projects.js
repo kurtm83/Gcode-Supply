@@ -99,6 +99,12 @@ class ProjectsManager {
             ? `<a href="${project.pdfUrl.startsWith('http') ? project.pdfUrl : '../' + project.pdfUrl}" target="_blank" class="btn btn-secondary">View Drawings (PDF)</a>` 
             : '';
 
+        const vimeoEmbed = project.vimeoUrl
+            ? `<div class="project-video" style="margin-top: 2rem;">
+                    <iframe src="${project.vimeoUrl}" title="${project.title} video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;"></iframe>
+                </div>`
+            : '';
+
         content.innerHTML = `
             <div class="project-modal-header">
                 <span class="project-category">${project.category}</span>
@@ -115,6 +121,7 @@ class ProjectsManager {
                     <img src="${img.startsWith('http') ? img : '../' + img}" alt="${project.title}" loading="lazy">
                 `).join('')}
             </div>
+            ${vimeoEmbed}
         `;
 
         modal.classList.add('active');
