@@ -1,6 +1,78 @@
 {
   "projects": [
     {
+      "id": "fox-sports-world-cup",
+      "title": "FOX SPORTS WORLD CUP",
+      "description": "Set design and construction drawings for Fox Sports' World Cup coverage - knee wall, N4 set structure and CNC flats. Full drawing set in the linked PDF.",
+      "thumbnail": "images/portfolio/project-images/fswc/kneewall-render.png",
+      "category": "TV",
+      "date": "2022-11",
+      "pdfUrl": "images/portfolio/project-images/fswc/fswc-portfol.pdf",
+      "images": [
+        "images/portfolio/project-images/fswc/kneewall-render.png",
+        "images/portfolio/project-images/fswc/fswc-kw-dwg.png",
+        "images/portfolio/project-images/fswc/fswc-kw-invert-dwg.png",
+        "images/portfolio/project-images/fswc/fswc-n4-flats-cnc.png",
+        "images/portfolio/project-images/fswc/fswc-s4-ext.jpg",
+        "images/portfolio/project-images/fswc/fswc-s4-ft-transition.png"
+      ]
+    },
+    {
+      "id": "grey-goose-2026",
+      "title": "GREY GOOSE 2026",
+      "description": "CAD design and documentation for the Grey Goose 2026 brand activation",
+      "thumbnail": "images/portfolio/project-images/grey goose 2026/2026-10-08_19-38-49.png",
+      "category": "Events",
+      "date": "2026-10",
+      "images": [
+        "images/portfolio/project-images/grey goose 2026/2026-10-08_19-38-49.png",
+        "images/portfolio/project-images/grey goose 2026/2026-10-08_19-38-59.png",
+        "images/portfolio/project-images/grey goose 2026/2026-10-08_19-39-07.png",
+        "images/portfolio/project-images/grey goose 2026/2026-10-08_19-39-19.png",
+        "images/portfolio/project-images/grey goose 2026/2026-10-08_19-39-29.png",
+        "images/portfolio/project-images/grey goose 2026/2026-10-08_19-39-38.png"
+      ]
+    },
+    {
+      "id": "disney-sweet-shop",
+      "title": "DISNEY SWEET SHOP",
+      "description": "CAD drawings for the Disney sweet shop build",
+      "thumbnail": "images/portfolio/project-images/disney sweet shop/2026-10-08_19-46-12.png",
+      "category": "Retail",
+      "date": "2026-10",
+      "images": [
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-46-12.png",
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-46-20.png",
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-46-29.png",
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-46-37.png",
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-46-46.png",
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-46-57.png",
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-47-06.png",
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-47-14.png",
+        "images/portfolio/project-images/disney sweet shop/2026-10-08_19-47-23.png"
+      ]
+    },
+    {
+      "id": "big-ben",
+      "title": "BIG BEN",
+      "description": "Set design renders and technical drawings for the Big Ben scenic build",
+      "thumbnail": "images/portfolio/project-images/big ben/2026-10-08_19-41-26.png",
+      "category": "Events",
+      "date": "2026-10",
+      "images": [
+        "images/portfolio/project-images/big ben/2026-10-08_19-41-26.png",
+        "images/portfolio/project-images/big ben/2026-10-08_19-42-02.png",
+        "images/portfolio/project-images/big ben/2026-10-08_19-42-10.png",
+        "images/portfolio/project-images/big ben/2026-10-08_19-44-14.png",
+        "images/portfolio/project-images/big ben/Scene 2.png",
+        "images/portfolio/project-images/big ben/Scene 2(1).png",
+        "images/portfolio/project-images/big ben/Scene 2(2).png",
+        "images/portfolio/project-images/big ben/Scene 3.png",
+        "images/portfolio/project-images/big ben/Scene 3(1).png",
+        "images/portfolio/project-images/big ben/Scene 3(2).png"
+      ]
+    },
+    {
       "id": "liquid-iv-bodega",
       "title": "LIQUID IV GLITCH BODEGA NYC",
       "description": "Immersive retail experience design and set construction",
@@ -9,22 +81,22 @@
       "date": "2025-11",
       "instagramUrl": "https://www.instagram.com/p/DOjkoFMEqys/?img_index=6",
       "images": [
-        "project-images/liquid-iv-bodega/liv_page-3.png",
-        "project-images/liquid-iv-bodega/liv_page-2.png",
-        "project-images/liquid-iv-bodega/liv_page-1.png",
-        "project-images/liquid-iv-bodega/liv_page-4.png",
-        "project-images/liquid-iv-bodega/liv_page-8.png",
-        "project-images/liquid-iv-bodega/liv_page-7.png",
-        "project-images/liquid-iv-bodega/liv_page-6.png",
-        "project-images/liquid-iv-bodega/liv_page-5.png",
-        "project-images/liquid-iv-bodega/liv_page-9.png",
-        "project-images/liquid-iv-bodega/liv_page-13.png",
-        "project-images/liquid-iv-bodega/liv_page-11.png",
-        "project-images/liquid-iv-bodega/liv_page-10.png",
-        "project-images/liquid-iv-bodega/liv_page-12.png",
-        "project-images/liquid-iv-bodega/liv_page-14.png",
-        "project-images/liquid-iv-bodega/liv_page-16.png",
-        "project-images/liquid-iv-bodega/liv_page-15.png"
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-3.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-2.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-1.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-4.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-8.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-7.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-6.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-5.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-9.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-13.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-11.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-10.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-12.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-14.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-16.png",
+        "images/portfolio/project-images/liquid-iv-bodega/liv_page-15.png"
       ]
     },
     {
@@ -35,13 +107,13 @@
       "category": "Theatre",
       "date": "2025-04",
       "images": [
-        "project-images/elf-musical/snag_84b2043.png",
-        "project-images/elf-musical/snag_848a6a8.png",
-        "project-images/elf-musical/snag_848a669.png",
-        "project-images/elf-musical/snag_848a5fc.png",
-        "project-images/elf-musical/snag_848a5ae.png",
-        "project-images/elf-musical/snag_848a56f.png",
-        "project-images/elf-musical/snag_848a4f2.png"
+        "images/portfolio/project-images/elf-musical/snag_84b2043.png",
+        "images/portfolio/project-images/elf-musical/snag_848a6a8.png",
+        "images/portfolio/project-images/elf-musical/snag_848a669.png",
+        "images/portfolio/project-images/elf-musical/snag_848a5fc.png",
+        "images/portfolio/project-images/elf-musical/snag_848a5ae.png",
+        "images/portfolio/project-images/elf-musical/snag_848a56f.png",
+        "images/portfolio/project-images/elf-musical/snag_848a4f2.png"
       ]
     },
     {
@@ -52,37 +124,37 @@
       "category": "Theatre",
       "date": "2024-11",
       "images": [
-        "project-images/sunset-blvd/snag_4af676c.png",
-        "project-images/sunset-blvd/snag_4aaec15.png",
-        "project-images/sunset-blvd/snag_4b9208f.png",
-        "project-images/sunset-blvd/snag_4a24db9.png",
-        "project-images/sunset-blvd/snag_4a24ec3.png",
-        "project-images/sunset-blvd/snag_4a24e94.png",
-        "project-images/sunset-blvd/snag_4a24e65.png",
-        "project-images/sunset-blvd/snag_4a24e07.png",
-        "project-images/sunset-blvd/snag_4a24d6b.png",
-        "project-images/sunset-blvd/snag_4a24d5c.png",
-        "project-images/sunset-blvd/snag_4a24d3c.png",
-        "project-images/sunset-blvd/snag_4a24d0d.png"
+        "images/portfolio/project-images/sunset-blvd/snag_4af676c.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4aaec15.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4b9208f.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24db9.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24ec3.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24e94.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24e65.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24e07.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24d6b.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24d5c.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24d3c.png",
+        "images/portfolio/project-images/sunset-blvd/snag_4a24d0d.png"
       ]
     },
     {
       "id": "hermes-bench",
-      "title": "Herm\u00c3\u00a8s ICE CREAM BENCH",
+      "title": "Herm\u00e8s ICE CREAM BENCH",
       "description": "Luxury retail fixture design and fabrication",
       "thumbnail": "images/portfolio/hermes-thumb.jpg",
       "category": "Retail",
       "date": "2024-07",
       "images": [
-        "project-images/hermes-bench/snag_a839ad7.png",
-        "project-images/hermes-bench/snag_a84ab3e.png",
-        "project-images/hermes-bench/snag_a84ab0f.png",
-        "project-images/hermes-bench/snag_a72dd71.png",
-        "project-images/hermes-bench/snag_a72ddde.png",
-        "project-images/hermes-bench/snag_a72de5b.png",
-        "project-images/hermes-bench/snag_a72dfd2.png",
-        "project-images/hermes-bench/748.jpg",
-        "project-images/hermes-bench/752.jpg"
+        "images/portfolio/project-images/hermes-bench/snag_a839ad7.png",
+        "images/portfolio/project-images/hermes-bench/snag_a84ab3e.png",
+        "images/portfolio/project-images/hermes-bench/snag_a84ab0f.png",
+        "images/portfolio/project-images/hermes-bench/snag_a72dd71.png",
+        "images/portfolio/project-images/hermes-bench/snag_a72ddde.png",
+        "images/portfolio/project-images/hermes-bench/snag_a72de5b.png",
+        "images/portfolio/project-images/hermes-bench/snag_a72dfd2.png",
+        "images/portfolio/project-images/hermes-bench/748.jpg",
+        "images/portfolio/project-images/hermes-bench/752.jpg"
       ]
     },
     {
@@ -93,11 +165,11 @@
       "category": "Theatre",
       "date": "2024-06",
       "images": [
-        "project-images/stereophonic/stereo-pg1.png",
-        "project-images/stereophonic/stereo-pg2.png",
-        "project-images/stereophonic/stereo-pg3.png",
-        "project-images/stereophonic/stereo-pg4.png",
-        "project-images/stereophonic/stereo-pg5.png"
+        "images/portfolio/project-images/stereophonic/stereo-pg1.png",
+        "images/portfolio/project-images/stereophonic/stereo-pg2.png",
+        "images/portfolio/project-images/stereophonic/stereo-pg3.png",
+        "images/portfolio/project-images/stereophonic/stereo-pg4.png",
+        "images/portfolio/project-images/stereophonic/stereo-pg5.png"
       ]
     },
     {
@@ -108,8 +180,8 @@
       "category": "Retail",
       "date": "2024-06",
       "images": [
-        "project-images/moroccanoil/mo-pg1.png",
-        "project-images/moroccanoil/mo-pg2.png"
+        "images/portfolio/project-images/moroccanoil/mo-pg1.png",
+        "images/portfolio/project-images/moroccanoil/mo-pg2.png"
       ]
     },
     {
@@ -120,14 +192,14 @@
       "category": "Events",
       "date": "2024-06",
       "images": [
-        "project-images/album-listening/alp-pg1.png",
-        "project-images/album-listening/alp-pg2.png",
-        "project-images/album-listening/alp-pg3.png",
-        "project-images/album-listening/alp-pg4.png",
+        "images/portfolio/project-images/album-listening/alp-pg1.png",
+        "images/portfolio/project-images/album-listening/alp-pg2.png",
+        "images/portfolio/project-images/album-listening/alp-pg3.png",
+        "images/portfolio/project-images/album-listening/alp-pg4.png",
         "https://3dnccom.wordpress.com/wp-content/uploads/2024/06/alp-pg5.png",
-        "project-images/album-listening/alp-pg6.png",
-        "project-images/album-listening/alp-pg7.png",
-        "project-images/album-listening/alp-pg8.png"
+        "images/portfolio/project-images/album-listening/alp-pg6.png",
+        "images/portfolio/project-images/album-listening/alp-pg7.png",
+        "images/portfolio/project-images/album-listening/alp-pg8.png"
       ]
     },
     {
@@ -138,12 +210,12 @@
       "category": "Events",
       "date": "2023-04",
       "images": [
-        "project-images/golfers-journal/2023-04-28_19-35-51.jpg",
-        "project-images/golfers-journal/snag_86fc790.png",
-        "project-images/golfers-journal/snag_86fc5bb.png",
-        "project-images/golfers-journal/snag_86fc389.png",
-        "project-images/golfers-journal/snag_86fc166.png",
-        "project-images/golfers-journal/snag_8666cba.png"
+        "images/portfolio/project-images/golfers-journal/2023-04-28_19-35-51.jpg",
+        "images/portfolio/project-images/golfers-journal/snag_86fc790.png",
+        "images/portfolio/project-images/golfers-journal/snag_86fc5bb.png",
+        "images/portfolio/project-images/golfers-journal/snag_86fc389.png",
+        "images/portfolio/project-images/golfers-journal/snag_86fc166.png",
+        "images/portfolio/project-images/golfers-journal/snag_8666cba.png"
       ]
     },
     {
@@ -155,44 +227,44 @@
       "date": "2025-12",
       "youtubeUrl": "https://www.youtube.com/watch?v=9KbZZwP1SZk",
       "images": [
-        "project-images/cadillac-iq/2025-12-06_14-19-16.gif",
-        "project-images/cadillac-iq/snag_15727fdf.png",
-        "project-images/cadillac-iq/snag_15727f90.png",
-        "project-images/cadillac-iq/snag_157280b9.png",
-        "project-images/cadillac-iq/snag_1572802d.png",
-        "project-images/cadillac-iq/snag_1572806b.png",
-        "project-images/cadillac-iq/snag_15727b2b.png",
-        "project-images/cadillac-iq/snag_15727b0d.png",
-        "project-images/cadillac-iq/snag_15727b0c.png",
-        "project-images/cadillac-iq/snag_15727a9f.png",
-        "project-images/cadillac-iq/snag_157279d4.png",
-        "project-images/cadillac-iq/snag_15727957.png",
-        "project-images/cadillac-iq/snag_1572788d.png",
-        "project-images/cadillac-iq/snag_1572788c.png",
-        "project-images/cadillac-iq/snag_15727995.png",
-        "project-images/cadillac-iq/snag_15727909.png",
-        "project-images/cadillac-iq/snag_157278ca.png",
-        "project-images/cadillac-iq/snag_15727d6e.png",
-        "project-images/cadillac-iq/snag_15727d10.png",
-        "project-images/cadillac-iq/snag_15727d3f.png",
-        "project-images/cadillac-iq/snag_15727c54.png",
-        "project-images/cadillac-iq/snag_15727ca2.png",
-        "project-images/cadillac-iq/snag_15727cd1.png",
-        "project-images/cadillac-iq/snag_15727f42.png",
-        "project-images/cadillac-iq/snag_15727dcb.png",
-        "project-images/cadillac-iq/snag_15727e58.png",
-        "project-images/cadillac-iq/snag_15727ee5.png",
-        "project-images/cadillac-iq/snag_15727e96.png",
-        "project-images/cadillac-iq/snag_15727e0a.png",
-        "project-images/cadillac-iq/snag_15727f13.png",
-        "project-images/cadillac-iq/snag_157278ba.png",
-        "project-images/cadillac-iq/snag_15727ba8.png",
-        "project-images/cadillac-iq/snag_15727a31.png",
-        "project-images/cadillac-iq/snag_15727add.png",
-        "project-images/cadillac-iq/snag_15727a70.png",
-        "project-images/cadillac-iq/snag_15727a03.png",
-        "project-images/cadillac-iq/snag_15727c16.png",
-        "project-images/cadillac-iq/snag_15727be7.png"
+        "images/portfolio/project-images/cadillac-iq/2025-12-06_14-19-16.gif",
+        "images/portfolio/project-images/cadillac-iq/snag_15727fdf.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727f90.png",
+        "images/portfolio/project-images/cadillac-iq/snag_157280b9.png",
+        "images/portfolio/project-images/cadillac-iq/snag_1572802d.png",
+        "images/portfolio/project-images/cadillac-iq/snag_1572806b.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727b2b.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727b0d.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727b0c.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727a9f.png",
+        "images/portfolio/project-images/cadillac-iq/snag_157279d4.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727957.png",
+        "images/portfolio/project-images/cadillac-iq/snag_1572788d.png",
+        "images/portfolio/project-images/cadillac-iq/snag_1572788c.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727995.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727909.png",
+        "images/portfolio/project-images/cadillac-iq/snag_157278ca.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727d6e.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727d10.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727d3f.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727c54.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727ca2.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727cd1.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727f42.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727dcb.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727e58.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727ee5.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727e96.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727e0a.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727f13.png",
+        "images/portfolio/project-images/cadillac-iq/snag_157278ba.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727ba8.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727a31.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727add.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727a70.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727a03.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727c16.png",
+        "images/portfolio/project-images/cadillac-iq/snag_15727be7.png"
       ]
     },
     {
@@ -203,30 +275,31 @@
       "category": "Retail",
       "date": "2021-02",
       "images": [
-        "project-images/brixton-encinitas/bxtn_hww_1.png",
-        "project-images/brixton-encinitas/selection_077.png",
-        "project-images/brixton-encinitas/snag_85fb6f4.png",
-        "project-images/brixton-encinitas/selection_078.png",
-        "project-images/brixton-encinitas/snag_85fb56d.png",
-        "project-images/brixton-encinitas/selection_075.png",
-        "project-images/brixton-encinitas/selection_076.png",
-        "project-images/brixton-encinitas/20210216_160633.png",
-        "project-images/brixton-encinitas/selection_079.png",
-        "project-images/brixton-encinitas/selection_074.png",
-        "project-images/brixton-encinitas/bxtn_hww_4.png",
-        "project-images/brixton-encinitas/bxtn_hww_3.png",
-        "project-images/brixton-encinitas/bxtn_hww_2.png",
-        "project-images/brixton-encinitas/20210216_160658.png",
-        "project-images/brixton-encinitas/20210216_160648.png",
-        "project-images/brixton-encinitas/20210216_160636.png",
-        "project-images/brixton-encinitas/20210216_160614.png",
-        "project-images/brixton-encinitas/20210216_160503.png",
-        "project-images/brixton-encinitas/20210216_160351.png"
+        "images/portfolio/project-images/brixton-encinitas/bxtn_hww_1.png",
+        "images/portfolio/project-images/brixton-encinitas/selection_077.png",
+        "images/portfolio/project-images/brixton-encinitas/snag_85fb6f4.png",
+        "images/portfolio/project-images/brixton-encinitas/selection_078.png",
+        "images/portfolio/project-images/brixton-encinitas/snag_85fb56d.png",
+        "images/portfolio/project-images/brixton-encinitas/selection_075.png",
+        "images/portfolio/project-images/brixton-encinitas/selection_076.png",
+        "images/portfolio/project-images/brixton-encinitas/20210216_160633.png",
+        "images/portfolio/project-images/brixton-encinitas/selection_079.png",
+        "images/portfolio/project-images/brixton-encinitas/selection_074.png",
+        "images/portfolio/project-images/brixton-encinitas/bxtn_hww_4.png",
+        "images/portfolio/project-images/brixton-encinitas/bxtn_hww_3.png",
+        "images/portfolio/project-images/brixton-encinitas/bxtn_hww_2.png",
+        "images/portfolio/project-images/brixton-encinitas/20210216_160658.png",
+        "images/portfolio/project-images/brixton-encinitas/20210216_160648.png",
+        "images/portfolio/project-images/brixton-encinitas/20210216_160636.png",
+        "images/portfolio/project-images/brixton-encinitas/20210216_160614.png",
+        "images/portfolio/project-images/brixton-encinitas/20210216_160503.png",
+        "images/portfolio/project-images/brixton-encinitas/20210216_160351.png"
       ]
     }
   ],
   "categories": [
     "All",
+    "TV",
     "Theatre",
     "Retail",
     "Events"

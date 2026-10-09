@@ -95,6 +95,10 @@ class ProjectsManager {
             ? `<a href="${project.youtubeUrl}" target="_blank" class="btn btn-secondary">Watch on YouTube</a>` 
             : '';
 
+        const pdfLink = project.pdfUrl 
+            ? `<a href="${project.pdfUrl.startsWith('http') ? project.pdfUrl : '../' + project.pdfUrl}" target="_blank" class="btn btn-secondary">View Drawings (PDF)</a>` 
+            : '';
+
         content.innerHTML = `
             <div class="project-modal-header">
                 <span class="project-category">${project.category}</span>
@@ -103,11 +107,12 @@ class ProjectsManager {
                 <div class="project-links">
                     ${instagramLink}
                     ${youtubeLink}
+                    ${pdfLink}
                 </div>
             </div>
             <div class="project-gallery">
                 ${project.images.map(img => `
-                    <img src="${img}" alt="${project.title}" loading="lazy">
+                    <img src="${img.startsWith('http') ? img : '../' + img}" alt="${project.title}" loading="lazy">
                 `).join('')}
             </div>
         `;
