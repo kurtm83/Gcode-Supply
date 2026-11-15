@@ -27,3 +27,6 @@ scripts/head-check.js
 
 # Admin password (not committed to git)
 store/admin-config.json
+
+# Generated gallery status page (see gallery-status.cmd)
+gallery-status.html
