@@ -2,88 +2,78 @@
 
 ## How It Works
 
-Your gallery automatically fetches video titles and descriptions from YouTube using the YouTube Data API v3. When you add new videos, the page will automatically load their metadata.
+Video titles are written into `gallery.html` as plain HTML by the build script,
+`scripts/update-gallery.js`. The script looks each title up through YouTube's
+public oEmbed endpoint, so **no API key is needed** and nothing secret is
+shipped to the browser.
 
-## Setup Steps
+## Adding New Videos
 
-### 1. Get a YouTube API Key (Free)
+1. Edit `youtube-videos.txt` and add your YouTube links (one per line).
+2. Run the update script:
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project (or select existing)
-3. Enable "YouTube Data API v3" for your project
-4. Go to "Credentials" and create an API key
-5. Copy your API key
+   ```bash
+   node scripts/update-gallery.js
+   ```
 
-### 2. Add Your API Key
+3. The script rewrites `gallery.html` with a card for each video, including its
+   real YouTube title, and updates the video playlist on `services.html`.
+   It also refreshes the "Recent Work" block from `featured-project.txt`.
 
-Open `js/main.js` and replace this line:
-```javascript
-const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY_HERE';
+If a title cannot be fetched (private or removed video, or you are offline), the
+card falls back to "Project Video" instead of a stuck "Loading..." label. Run the
+script again once you are online to fill in the real title.
+
+## Checking Titles
+
+```bash
+node scripts/check-video.js
 ```
 
-With your actual API key:
-```javascript
-const YOUTUBE_API_KEY = 'AIzaSyD...your-actual-key-here';
-```
-
-### 3. Adding New Videos
-
-When you want to add or update videos in your gallery:
-
-1. Edit `youtube-videos.txt` and add your YouTube links (one per line)
-2. Run the helper script: `node scripts/update-gallery.js`
-3. The script will update `gallery.html` with your new videos
-4. The page will automatically load titles and descriptions
+Prints the ID, title, and channel for every video listed in
+`youtube-videos.txt`. No key required.
 
 ## Manual Method (No Script)
 
-If you prefer to manually add videos to `gallery.html`:
+To add a video by hand, copy an existing card in `gallery.html` and change the
+ID in both the `data-video-id` attribute and the iframe `src`:
 
-1. Find this section in `gallery.html`:
 ```html
 <div class="video-card" data-video-id="YOUR_VIDEO_ID">
     <div class="video-wrapper">
-        <iframe 
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&loop=1&playlist=YOUR_VIDEO_ID"
+            title="Your project title (YouTube video)"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
     </div>
-    <h4 class="video-title">Loading...</h4>
-    <p class="video-description">Loading video details...</p>
+    <h4 class="video-title">Your project title</h4>
+    <p class="video-description">One line describing the print</p>
 </div>
 ```
 
-2. Replace `YOUR_VIDEO_ID` with the video ID from YouTube
-   - Example: For `https://youtu.be/HqKrmmI5z4Q`, the ID is `HqKrmmI5z4Q`
-   - Or from `https://www.youtube.com/watch?v=HqKrmmI5z4Q`, the ID is also `HqKrmmI5z4Q`
+- `https://youtu.be/HqKrmmI5z4Q` → ID is `HqKrmmI5z4Q`
+- `https://www.youtube.com/watch?v=HqKrmmI5z4Q` → ID is `HqKrmmI5z4Q`
 
-## API Limits
+## Why there is no API key
 
-- YouTube API has a free quota of 10,000 units per day
-- Each page load uses 1 unit per video
-- This is plenty for a small business website
-- If you exceed limits, the fallback text will display
+The site is served as static files from a public repository (GitHub Pages), so
+any key placed in HTML or JavaScript is public the moment it is deployed. Even a
+"restricted" key can be copied and used from another site that matches the
+referrer rules, and an unrestricted one can be used by anyone.
+
+The YouTube Data API also charges quota per request: a key in the page meant one
+API call per visitor per page load. Baking titles at build time removes both the
+exposure and the quota cost.
 
 ## Troubleshooting
 
-**Videos show "Loading..." text:**
-- Check that your API key is correct in `js/main.js`
-- Check browser console for errors (F12 → Console tab)
-- Verify your API key has YouTube Data API v3 enabled
+**A card says "Project Video" instead of a real title**
+- Run `node scripts/update-gallery.js` while online and commit the result.
+- `node scripts/check-video.js` will show which IDs YouTube cannot resolve.
 
-**"Project Video" displays instead of real title:**
-- API key not set or incorrect
-- Check console for specific error messages
-
-## No API Key?
-
-If you don't want to use an API key, you can still manually set titles and descriptions in the HTML:
-
-```html
-<h4 class="video-title">My Custom Project Title</h4>
-<p class="video-description">My custom project description</p>
-```
-
-The JavaScript will gracefully handle missing API keys.
+**A video no longer plays**
+- The video may be private or deleted. `check-video.js` reports the HTTP status.

@@ -2,12 +2,9 @@
 
 ## Simple 3-Step Process
 
-### Step 1: Get Your YouTube API Key (One-time setup)
+### Step 1: Nothing to set up
 
-1. Go to https://console.cloud.google.com/
-2. Create a project and enable "YouTube Data API v3"
-3. Create an API key under Credentials
-4. Open `js/main.js` and replace `YOUR_YOUTUBE_API_KEY_HERE` with your actual key
+No YouTube API key is needed. Video titles are fetched from YouTube's public oEmbed endpoint by the update script and written into `gallery.html` as plain text.
 
 ### Step 2: Add Your Videos
 

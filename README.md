@@ -22,23 +22,18 @@ Professional 3D printing services website.
 
 ### Adding Videos to Gallery
 
-1. **Get YouTube API Key** (one-time):
-   - Visit https://console.cloud.google.com/
-   - Enable YouTube Data API v3
-   - Create an API key
-   - Add to `js/main.js`
-
+1. **No API key needed** - titles come from YouTube's public oEmbed lookup at build time.
 2. **Add videos** to `youtube-videos.txt` (one link per line)
-
 3. **Run update script**:
+
    ```powershell
    .\scripts\update-gallery.ps1
    ```
-   
+
    This automatically updates:
    - Gallery page with all videos
    - Services page playlist
-   - Titles/descriptions load from YouTube API
+   - Titles are written into gallery.html (no API key, no runtime quota)
 
 **See [QUICK_START.md](QUICK_START.md) for detailed instructions.**
 

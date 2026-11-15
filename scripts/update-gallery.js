@@ -33,19 +33,49 @@ function extractVideoId(url) {
     return null;
 }
 
-function generateVideoCard(videoId, index) {
+// Titles are read from YouTube's public oEmbed endpoint. No API key is needed,
+// so nothing secret ends up in the published HTML or JavaScript.
+async function fetchVideoTitle(videoId) {
+    const url = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
+    try {
+        const response = await fetch(url, { signal: AbortSignal.timeout(10000) });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        return (data.title || '').trim() || null;
+    } catch (error) {
+        console.warn(`⚠ Could not fetch title for ${videoId}: ${error.message}`);
+        return null;
+    }
+}
+
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function generateVideoCard(videoId, index, title) {
+    const heading = escapeHtml(title || 'Project Video');
+    const description = escapeHtml(title
+        ? `Print time lapse - ${title}`
+        : 'Watch this 3D printing project time lapse');
+
     return `                <!-- Video ${index + 1} -->
                 <div class="video-card" data-video-id="${videoId}">
                     <div class="video-wrapper">
                         <iframe 
                             src="https://www.youtube.com/embed/${videoId}?rel=0&loop=1&playlist=${videoId}" 
+                            title="${heading} (YouTube video)"
+                            loading="lazy"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
                     </div>
-                    <h4 class="video-title">Loading...</h4>
-                    <p class="video-description">Loading video details...</p>
+                    <h4 class="video-title">${heading}</h4>
+                    <p class="video-description">${description}</p>
                 </div>`;
 }
 
@@ -72,7 +102,7 @@ function generateFeaturedSection(config) {
         const imgKey = `IMAGE_${i}`;
         const altKey = `IMAGE_${i}_ALT`;
         if (config[imgKey]) {
-            images.push(`<img src="images/${config[imgKey]}" alt="${config[altKey] || 'Project image'}">`);
+            images.push(`<img loading="lazy" decoding="async" src="images/${config[imgKey]}" alt="${config[altKey] || 'Project image'}">`);
         }
     }
     
@@ -92,6 +122,8 @@ function generateFeaturedSection(config) {
                         <div class="gallery-video" data-video-id="${config.VIDEO_ID}">
                             <iframe 
                                 src="https://www.youtube.com/embed/${config.VIDEO_ID}?rel=0&loop=1&playlist=${config.VIDEO_ID}" 
+                                title="${config.TITLE || 'Project video'} (YouTube video)"
+                                loading="lazy"
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
@@ -120,6 +152,7 @@ function generateFeaturedSection(config) {
     </section>`;
 }
 
+(async () => {
 try {
     // Read video links
     const content = fs.readFileSync(videoLinksFile, 'utf-8');
@@ -136,8 +169,13 @@ try {
     
     console.log(`✓ Found ${videoIds.length} video(s)`);
     
+    // Look up each video's public title (no API key needed)
+    const titles = await Promise.all(videoIds.map(fetchVideoTitle));
+
     // Generate video cards HTML
-    const videoCardsHtml = videoIds.map((id, index) => generateVideoCard(id, index)).join('\n\n');
+    const videoCardsHtml = videoIds
+        .map((id, index) => generateVideoCard(id, index, titles[index]))
+        .join('\n\n');
     
     // Read gallery.html
     let galleryHtml = fs.readFileSync(galleryFile, 'utf-8');
@@ -215,3 +253,4 @@ try {
     console.error('❌ Error:', error.message);
     process.exit(1);
 }
+})();
