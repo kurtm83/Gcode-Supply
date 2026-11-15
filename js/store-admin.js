@@ -56,6 +56,15 @@ class StoreAdmin {
             console.error('Error loading data:', error);
             alert('Error loading store data. Please refresh the page.');
         }
+        try {
+            const configResp = await fetch('store/admin-config.json');
+            if (configResp.ok) {
+                const config = await configResp.json();
+                if (config.password) {
+                    this.data.settings.adminPassword = config.password;
+                }
+            }
+        } catch (e) { }
     }
 
     setupEventListeners() {
