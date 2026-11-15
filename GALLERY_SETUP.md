@@ -12,6 +12,21 @@
 
 That is the whole job. Nothing to install, no key, nothing to download.
 
+## One click on this computer: `gallery-add.cmd`
+
+Copy the video link on YouTube (**Share -> Copy link**), then double-click
+`gallery-add.cmd` in this folder. It adds the link, commits it, pushes, waits
+for the GitHub rebuild, and prints the video title once it is actually live.
+Nothing to type; if the clipboard holds no link it asks you to paste one.
+
+    gallery-add.cmd            uses the link on your clipboard
+    gallery-add.cmd <link>     adds that link
+    gallery-add.cmd -DryRun <link>   shows what it would do, changes nothing
+
+It needs this folder on the machine and push access (the SSH key
+`github-kurtm83`). If it reports other uncommitted files it stops without
+pushing, so it cannot sweep unrelated work into its commit.
+
 ## How It Works
 
 Video titles are written into `gallery.html` as plain HTML by the build script,
