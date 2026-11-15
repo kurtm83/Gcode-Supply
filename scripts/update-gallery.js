@@ -180,8 +180,14 @@ try {
     // Read gallery.html
     let galleryHtml = fs.readFileSync(galleryFile, 'utf-8');
     
+    // The "Recent Work" block on gallery.html is hand-maintained (it uses a Vimeo
+    // embed and a multi-image collage that this script cannot reproduce), so it is
+    // only rebuilt when explicitly asked for. featured-project.txt still documents
+    // the template and its note explains the same thing.
+    const rebuildFeatured = process.argv.includes('--with-featured');
+
     // Update featured section if featured-project.txt exists
-    if (fs.existsSync(featuredProjectFile)) {
+    if (rebuildFeatured && fs.existsSync(featuredProjectFile)) {
         const featuredConfig = parseFeaturedProject(featuredProjectFile);
         const featuredHtml = generateFeaturedSection(featuredConfig);
         
@@ -194,6 +200,8 @@ try {
         } else {
             console.log('⚠ Could not find featured section in gallery.html (skipping)');
         }
+    } else {
+        console.log('• Recent Work block left untouched (pass --with-featured to rebuild it)');
     }
     
     // Find the video-grid section and replace content using regex

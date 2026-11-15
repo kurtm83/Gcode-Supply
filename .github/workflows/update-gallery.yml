@@ -1,0 +1,50 @@
+name: Update gallery from YouTube
+
+# Adding a video needs no terminal: edit youtube-videos.txt on github.com and
+# commit. This workflow regenerates gallery.html and services.html for you.
+on:
+  push:
+    branches: [main]
+    paths:
+      - youtube-videos.txt
+      - featured-project.txt
+  schedule:
+    # Mondays 13:00 UTC - picks up titles you renamed on YouTube.
+    - cron: '0 13 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-gallery
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Reads youtube-videos.txt, looks each title up on YouTube's public oEmbed
+      # endpoint (no API key, no quota), and rewrites the video cards.
+      - name: Regenerate gallery
+        run: node scripts/update-gallery.js
+
+      - name: Commit the result
+        run: |
+          if git diff --quiet -- gallery.html services.html; then
+            echo "Nothing changed - gallery is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gallery.html services.html
+          git commit -m "chore: refresh gallery from youtube-videos.txt"
+          git push
