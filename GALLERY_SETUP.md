@@ -27,6 +27,22 @@ It needs this folder on the machine and push access (the SSH key
 `github-kurtm83`). If it reports other uncommitted files it stops without
 pushing, so it cannot sweep unrelated work into its commit.
 
+## Checking what is live without GitHub: `gallery-status.cmd`
+
+Double-click `gallery-status.cmd` in this folder. It prints how many links are
+listed, how many cards are built, how many the live site actually serves, which
+videos are still waiting, and the last rebuild and deploy — then opens a small
+status page (badges per video, links to each one). Read-only: it changes nothing
+and pushes nothing.
+
+    gallery-status.cmd            check, then open the status page
+    gallery-status.cmd -NoOpen    print in the window only
+
+It reads `youtube-videos.txt` from GitHub (and warns if your local copy differs),
+`gallery.html` on `main`, <https://gcode.supply/gallery.html>, and the public
+GitHub Actions API. The page it writes, `gallery-status.html`, is gitignored, so
+it never shows up in a commit.
+
 ## How It Works
 
 Video titles are written into `gallery.html` as plain HTML by the build script,
