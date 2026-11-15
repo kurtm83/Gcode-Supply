@@ -26,6 +26,19 @@ class StoreAdmin {
             e.preventDefault();
             this.handleLogin();
         });
+
+        // Escape hatch: a locally changed password is easy to forget, and this is
+        // the only way back in without wiping the whole origin's storage.
+        const resetLink = document.getElementById('resetLocalBtn');
+        if (resetLink) {
+            resetLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (confirm('Clear the settings saved in this browser and reload?\n\nThe password goes back to the one in store/products.json.')) {
+                    localStorage.removeItem('3dnc-store-data');
+                    location.reload();
+                }
+            });
+        }
     }
 
     showDashboard() {
@@ -56,12 +69,28 @@ class StoreAdmin {
             console.error('Error loading data:', error);
             alert('Error loading store data. Please refresh the page.');
         }
+        // Edits saved from this page live in localStorage (see saveData) and win
+        // over the deployed JSON, otherwise they are lost on the next login.
+        try {
+            const saved = localStorage.getItem('3dnc-store-data');
+            if (saved) {
+                const local = JSON.parse(saved);
+                if (local && local.settings) {
+                    this.data.settings = { ...this.data.settings, ...local.settings };
+                }
+            }
+        } catch (e) {
+            console.warn('Ignoring unreadable local store data:', e);
+        }
+        // A deployed admin-config.json still pins the password on purpose.
+        this.passwordPinnedByConfig = false;
         try {
             const configResp = await fetch('store/admin-config.json');
             if (configResp.ok) {
                 const config = await configResp.json();
                 if (config.password) {
                     this.data.settings.adminPassword = config.password;
+                    this.passwordPinnedByConfig = true;
                 }
             }
         } catch (e) { }
@@ -389,6 +418,24 @@ class StoreAdmin {
         // Load PayPal settings
         document.getElementById('paypalEnabled').checked = this.data.settings.paypalEnabled || false;
         document.getElementById('paypalClientId').value = this.data.settings.paypalClientId || '';
+
+        // A deployed admin-config.json overrides whatever is typed here.
+        const passwordField = document.getElementById('adminPasswordNew');
+        const passwordHint = document.getElementById('adminPasswordHint');
+        if (this.passwordPinnedByConfig) {
+            passwordField.value = '';
+            passwordField.disabled = true;
+            passwordField.placeholder = 'Pinned by store/admin-config.json';
+            if (passwordHint) {
+                passwordHint.textContent = 'store/admin-config.json overrides this field. Remove or edit that file to change it.';
+            }
+        } else {
+            passwordField.disabled = false;
+            passwordField.placeholder = 'Enter new password to change';
+            if (passwordHint) {
+                passwordHint.textContent = 'Saved in this browser only. Use Download products.json to apply it everywhere.';
+            }
+        }
         
         // Set active fulfillment provider
         const activeProvider = Object.keys(this.data.fulfillmentProviders).find(
@@ -424,7 +471,10 @@ class StoreAdmin {
         });
         
         this.saveData();
-        alert('Settings saved successfully!');
+        const passwordChanged = newPassword && newPassword.trim() !== '';
+        alert(passwordChanged
+            ? 'Settings saved and password changed for this browser.\n\nUse the Download products.json button to publish the change for every visitor.'
+            : 'Settings saved for this browser.\n\nUse the Download products.json button to publish the change for every visitor.');
     }
 
     saveData() {
