@@ -1785,3 +1785,162 @@ footer {
     .berry-entry .berry-collage img { height: auto; }
     .berry-entry .berry-collage .span-3 { grid-column: span 6; }
 }
+
+/* ===================================
+   Modern web features
+   =================================== */
+
+@view-transition {
+    navigation: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 2000;
+    padding: 0.75rem 1rem;
+    background: var(--primary-color);
+    color: #1e2a35;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 1rem;
+    color: #1e2a35;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Container query: service cards switch to icon-beside-text when wide enough */
+.service-card {
+    container-type: inline-size;
+}
+
+@container (min-width: 22rem) {
+    .service-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 1.25rem;
+        align-items: start;
+    }
+
+    .service-card .service-icon {
+        grid-row: span 3;
+        margin-bottom: 0;
+    }
+}
+
+/* Scroll-driven reveal; main.js skips its JavaScript fallback when this is supported */
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+        @keyframes scroll-reveal {
+            from {
+                opacity: 0;
+                translate: 0 40px;
+            }
+            to {
+                opacity: 1;
+                translate: 0 0;
+            }
+        }
+
+        .service-card,
+        .video-card,
+        .faq-item,
+        .portfolio-item {
+            animation: scroll-reveal linear both;
+            animation-timeline: view();
+            animation-range: entry 0% cover 35%;
+        }
+    }
+}
+
+/* Form validation: styles appear only after the user has interacted with a field */
+.form-group textarea {
+    field-sizing: content;
+    min-height: 9rem;
+    max-height: 24rem;
+}
+
+.form-group input:user-invalid,
+.form-group select:user-invalid,
+.form-group textarea:user-invalid {
+    border-color: #ef5350;
+}
+
+.form-group input:user-valid,
+.form-group select:user-valid,
+.form-group textarea:user-valid {
+    border-color: var(--secondary-color);
+}
+
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Recent work lightbox dialog */
+.project-image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+    border-radius: 8px;
+}
+
+.work-preview {
+    width: min(92vw, 1000px);
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+}
+
+.work-preview::backdrop {
+    background-color: rgb(0 0 0 / 0.7);
+    backdrop-filter: blur(2px);
+    overflow: hidden;
+    overscroll-behavior: contain;
+}
+
+dialog:modal {
+    overscroll-behavior: contain;
+}
+
+.work-preview img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.work-preview form {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}

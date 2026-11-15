@@ -30,8 +30,8 @@ To make www.gcode.supply also work (recommended):
 ## ✅ Already Configured (Should be Good)
 
 ### Content
-- ✅ YouTube API key configured and restricted (AIzaSyDW_j3p_EgbFKevryeBZWrq69WD-a6yFBg)
-- ✅ API restrictions set for: localhost:5500, 127.0.0.1:5500, gcode.supply
+- [x] Gallery video titles baked in at build time (no API key stored in the repo or shipped to the browser)
+- [x] No client-side API keys; scripts/update-gallery.js uses YouTube's public oEmbed lookup
 - ✅ Formspree contact form configured (xaqdblee)
 - ✅ Gallery videos configured (6 videos in youtube-videos.txt)
 - ✅ Featured project configured in featured-project.txt
@@ -105,7 +105,7 @@ To make www.gcode.supply also work (recommended):
 If you need help with:
 - **GitHub Pages**: https://docs.github.com/en/pages
 - **DNS Configuration**: Contact your domain registrar's support
-- **YouTube API**: https://console.cloud.google.com/
+- **Gallery videos**: see GALLERY_SETUP.md (no API key needed)
 - **Formspree**: https://formspree.io/
 
 ## Current Status Summary

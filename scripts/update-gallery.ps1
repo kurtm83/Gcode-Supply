@@ -22,25 +22,51 @@ function Extract-VideoId {
     return $null
 }
 
+function Get-VideoTitle {
+    param([string]$videoId)
+
+    # Public oEmbed lookup - no API key needed.
+    try {
+        $url = "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=$videoId&format=json"
+        $response = Invoke-RestMethod -Uri $url -TimeoutSec 10
+        if ($response.title) { return $response.title.Trim() }
+    } catch {
+        Write-Host "  (could not fetch title for $videoId)" -ForegroundColor Yellow
+    }
+    return $null
+}
+
+function ConvertTo-HtmlText {
+    param([string]$value)
+    if (-not $value) { return '' }
+    return ($value -replace '&', '&amp;' -replace '<', '&lt;' -replace '>', '&gt;' -replace '"', '&quot;')
+}
+
 function Generate-VideoCard {
     param(
         [string]$videoId,
-        [int]$index
+        [int]$index,
+        [string]$title
     )
-    
+
+    $heading = if ($title) { ConvertTo-HtmlText $title } else { 'Project Video' }
+    $description = if ($title) { ConvertTo-HtmlText "Print time lapse - $title" } else { 'Watch this 3D printing project time lapse' }
+
     return @"
                 <!-- Video $($index + 1) -->
                 <div class="video-card" data-video-id="$videoId">
                     <div class="video-wrapper">
                         <iframe 
                             src="https://www.youtube.com/embed/$videoId?rel=0&loop=1&playlist=$videoId" 
+                            title="$heading (YouTube video)"
+                            loading="lazy"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
                     </div>
-                    <h4 class="video-title">Loading...</h4>
-                    <p class="video-description">Loading video details...</p>
+                    <h4 class="video-title">$heading</h4>
+                    <p class="video-description">$description</p>
                 </div>
 "@
 }
@@ -74,7 +100,7 @@ try {
     # Generate video cards HTML
     $videoCardsHtml = @()
     for ($i = 0; $i -lt $videoIds.Count; $i++) {
-        $videoCardsHtml += Generate-VideoCard $videoIds[$i] $i
+        $videoCardsHtml += Generate-VideoCard $videoIds[$i] $i (Get-VideoTitle $videoIds[$i])
     }
     $videoCardsHtmlString = $videoCardsHtml -join "`n`n"
     
@@ -95,7 +121,9 @@ try {
         $galleryHtml = $galleryHtml -replace $pattern, $newContent
         
         # Write updated gallery.html
-        Set-Content -Path $galleryFile -Value $galleryHtml -NoNewline
+        $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+        $galleryHtml = $galleryHtml -replace "(?<!`r)`n", "`r`n"
+        [IO.File]::WriteAllText($galleryFile, $galleryHtml, $utf8NoBom)
         
         Write-Host "✓ Gallery updated successfully!" -ForegroundColor Green
         Write-Host "✓ Added $($videoIds.Count) video(s) to gallery.html" -ForegroundColor Green
@@ -113,7 +141,8 @@ try {
             
             if ($servicesHtml -match $iframePattern) {
                 $servicesHtml = $servicesHtml -replace $iframePattern, $newIframeSrc
-                Set-Content -Path $servicesFile -Value $servicesHtml -NoNewline
+                $servicesHtml = $servicesHtml -replace "(?<!`r)`n", "`r`n"
+                [IO.File]::WriteAllText($servicesFile, $servicesHtml, $utf8NoBom)
                 Write-Host "✓ Services page playlist updated!" -ForegroundColor Green
             } else {
                 Write-Host "⚠ Could not find video iframe in services.html (skipping)" -ForegroundColor Yellow

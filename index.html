@@ -33,9 +33,10 @@
       }
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=20260228111608">
+    <link rel="stylesheet" href="css/style.css?v=20261115">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- Full-Page G-Code Background -->
     <div class="gcode-background-global">
         <div class="gcode-line">G1 X58.454 Y56.65 E.08308</div>
@@ -220,6 +221,7 @@
             </div>
         </div>
     </nav>
+    <main id="main-content">
 
     <!-- Hero Section with Video Background -->
     <section class="hero">
@@ -279,7 +281,9 @@
             <div class="modal-light">
                 <div class="featured-project">
                     <div class="project-image">
-                        <img src="images/berry-project/render.perspective.png" alt="Big berry print files project">
+                        <button type="button" class="project-image-button" command="show-modal" commandfor="work-preview" aria-label="Enlarge image: Big Berry Print Files">
+                            <img src="images/berry-project/render.perspective.png" alt="Big berry print files project">
+                        </button>
                     </div>
                     <div class="project-info">
                         <h3>Big Berry Print Files</h3>
@@ -291,6 +295,14 @@
         </div>
     </section>
 
+    <dialog id="work-preview" class="work-preview" closedby="any" aria-labelledby="work-preview-title">
+        <h2 id="work-preview-title" class="visually-hidden">Big Berry Print Files</h2>
+        <img src="images/berry-project/render.perspective.png" alt="Color CAD render of the big berry print files project">
+        <form method="dialog">
+            <button type="submit" class="btn btn-primary">Close</button>
+        </form>
+    </dialog>
+
     <!-- Call to Action -->
     <section class="cta">
         <div class="container">
@@ -301,6 +313,7 @@
     </section>
 
     <!-- Footer -->
+    </main>
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -327,6 +340,24 @@
         </div>
     </footer>
 
+    <script type="module">
+        // Load the invoker commands polyfill only in browsers without native support.
+        if (!('commandForElement' in HTMLButtonElement.prototype)) {
+            import('https://esm.run/invokers-polyfill');
+        }
+
+        // Light dismiss fallback for browsers without closedby (Safari).
+        if (!('closedBy' in HTMLDialogElement.prototype)) {
+            const dialog = document.getElementById('work-preview');
+            const outside = (e, el) => {
+                const r = el.getBoundingClientRect();
+                return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+            };
+            let pressedOutside = false;
+            dialog.addEventListener('pointerdown', (e) => { pressedOutside = outside(e, dialog); });
+            dialog.addEventListener('pointerup', (e) => { if (pressedOutside && outside(e, dialog)) dialog.close(); });
+        }
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
