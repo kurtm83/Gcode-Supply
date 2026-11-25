@@ -1702,6 +1702,14 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+/* Project links sit on the white modal, so keep them blue at rest (not just on hover) */
+.project-links .btn-secondary,
+.project-links .btn-secondary:hover {
+    background-color: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
 .project-gallery {
     display: grid;
     gap: 1.5rem;
